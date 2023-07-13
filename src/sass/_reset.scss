@@ -1,0 +1,47 @@
+html {
+	-webkit-text-size-adjust: 100%;
+	font-family: sans-serif;
+}
+body {
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style-type: none;
+}
+
+input {
+	appearance: none;
+	border-width: 0;
+	font-size: 1rem;
+}
+
+button {
+	appearance: none;
+	background-color: transparent;
+	border-width: 0;
+	font-family: inherit;
+	font-size: 1rem;
+
+	&:not(:disabled) {
+		cursor: pointer;
+	}
+}
+
+textarea {
+	appearance: none;
+	border-width: 0;
+	font-size: 1rem;
+}

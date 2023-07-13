@@ -1,0 +1,86 @@
+@use './defs';
+
+:root {
+	--color-bg: hsl(200deg, 5%, 95%);
+	--color-bg-card: white;
+	--color-bg-hero: hsl(200deg, 0%, 10%);
+	--color-fg: hsl(200deg, 30%, 20%);
+	--color-fg-disabled: hsla(200deg, 30%, 20%, 0.4);
+	--color-fg-hero: white;
+
+	--color-accent: hsl(350deg, 70%, 55%);
+	--color-action: hsl(200deg, 100%, 40%);
+	--color-action-disabled: hsl(200deg, 5%, 50%);
+	--color-action-hero: hsl(200deg, 100%, 70%);
+	--color-action-hover: hsl(200deg, 100%, 45%);
+	--color-input-border: rgba(0, 0, 0, 0.1);
+	--color-input-placeholder: rgba(0, 0, 0, 0.4);
+
+	@media (prefers-color-scheme: dark) {
+		--color-bg: hsl(200deg, 7%, 20%);
+		--color-bg-card: hsl(200deg, 5%, 30%);
+		--color-fg: hsl(200deg, 10%, 80%);
+		--color-fg-disabled: hsl(200deg, 10%, 80%, 0.3);
+
+		--color-accent: hsl(350deg, 60%, 65%);
+		--color-action: hsl(200deg, 100%, 60%);
+		--color-action-disabled: hsl(200deg, 5%, 50%);
+		--color-action-hover: hsl(200deg, 100%, 65%);
+		--color-input-border: transparent;
+		--color-input-placeholder: hsl(200deg, 10%, 80%, 0.3);
+	}
+}
+
+html {
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+	font-family: defs.$font-family-body;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: defs.$font-family-heading;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1.2;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1rem;
+}
+
+p {
+	line-height: 1.6;
+}
+p + p {
+	margin-top: 1em;
+}
+
+a {
+	color: var(--color-action);
+}
+
+input[type="text"], textarea {
+	background-color: var(--color-bg-card);
+	border: var(--color-input-border) solid 1px;
+	border-radius: 4px;
+	color: var(--color-fg);
+	font-size: 0.9rem;
+
+	&:focus {
+		outline: var(--color-action) solid 2px;
+		outline-offset: -2px;
+	}
+
+	&::placeholder {
+		color: var(--color-input-placeholder);
+	}
+}
+input[type="text"] {
+	padding: 8px;
+}
+textarea {
+	padding: 16px;
+}

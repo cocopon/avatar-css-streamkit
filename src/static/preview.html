@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Preview</title>
+	<style>
+		html {
+			background-color: transparent;
+		}
+		body, ul, li {
+			margin: 0;
+			padding: 0;
+		}
+		body .tp-dfwv {
+			bottom: 16px;
+			display: none;
+			right: 16px;
+			top: auto;
+		}
+		ul {
+			list-style-type: none;
+			position: absolute;
+			transform-origin: left top;
+		}
+		img {
+			border-color: transparent;
+			border-style: solid;
+			border-radius: 50%;
+			border-width: 6px;
+		}
+		img.Speaking {
+			border-color: forestgreen;
+		}
+	</style>
+</head>
+<body>
+	<ul style="transform: scale(0.5);">
+		<li class="State">
+			<img src="assets/member/ukon.png" alt="">
+			<div><span></span></div>
+		</li>
+	</ul>
+	<script type="module">
+		import {Pane} from 'https://cdn.jsdelivr.net/npm/tweakpane@4.0.0-beta.1/dist/tweakpane.min.js';
+
+		const debug = location.href.includes('debug');
+		if (debug) {
+			document.documentElement.style.backgroundColor = 'hsl(200deg, 0%, 10%)';
+		}
+
+		const params = {
+			background: getComputedStyle(document.documentElement).backgroundColor,
+			scale: 0.5,
+		};
+
+		const imgElem = document.querySelector('img');
+
+		function applyPreview() {
+			const elem = document.querySelector('ul');
+			elem.style.transform = `scale(${params.scale})`;
+
+			elem.style.left = `calc(50% - ${imgElem.width}px * ${params.scale} / 2)`;
+			elem.style.top = `calc(50% - ${imgElem.height}px * ${params.scale} / 2)`;
+		}
+
+		const ro = new ResizeObserver(() => {
+			applyPreview();
+		});
+		ro.observe(imgElem);
+
+		function simulateSpeaking() {
+			const delay = Math.floor(1000 + Math.random() * 5000);
+			setTimeout(() => {
+				imgElem.classList.toggle('Speaking');
+				simulateSpeaking();
+			}, delay);
+		}
+		simulateSpeaking();
+
+		if (debug) {
+			const pane = new Pane({
+				expanded: false,
+				title: 'Preview',
+			});
+			pane.addBinding(params, 'scale', {
+				options: [
+					{text: '25%', value: 0.25},
+					{text: '50%', value: 0.5},
+					{text: '100%', value: 1},
+				],
+			}).on('change', (ev) => {
+				applyPreview();
+			});
+			pane.addBinding(params, 'background', {
+				picker: 'inline',
+			}).on('change', (ev) => {
+				document.documentElement.style.backgroundColor = ev.value;
+			});
+		}
+	</script>
+</body>
+</html>

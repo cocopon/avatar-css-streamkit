@@ -1,0 +1,86 @@
+@use './defs';
+
+.usage {
+	&_toc, h3 {
+		@include defs.sp-and-tablet() {
+			margin-top: 4rem;
+		}
+		@include defs.pc() {
+			margin-top: 8rem;
+		}
+	}
+	&_toc {
+		li + li {
+			margin-top: 0.5em;
+		}
+	}
+
+  &_image {
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+	h3 {
+		align-items: center;
+		display: flex;
+		font-size: 1.5rem;
+		gap: 16px;
+		padding-bottom: 8px;
+		position: relative;
+
+		&::before {
+			background: linear-gradient(to right, hsl(200deg, 100%, 50%), hsl(175deg, 75%, 50%));
+			bottom: 0;
+			content: '';
+			height: 2px;
+			left: 0;
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	:is(h1, h2, h3) + p,
+	&_image + p,
+	p + &_image {
+		@include defs.sp-and-tablet() {
+			margin-top: 1em;
+		}
+		@include defs.pc() {
+			margin-top: 2em;
+		}
+	}
+}
+
+.toc {
+	background-color: var(--color-bg-card);
+	border-radius: 8px;
+	padding: 32px;
+
+	&_title {
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.step {
+	background-color: hsl(200deg, 100%, 50%);
+	border-radius: 16px;
+	box-sizing: border-box;
+	color: var(--color-bg);
+	display: inline-block;
+	font-size: 1rem;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 8px;
+	padding-right: 8px;
+}

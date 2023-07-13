@@ -1,0 +1,92 @@
+@use 'sass:math';
+@use './reset';
+@use './base';
+@use './defs';
+
+@use './components/button';
+
+@use './index';
+@use './usage';
+
+.main {
+	&_body {
+		@include defs.responsive_body();
+
+		padding-top: 64px;
+
+		@include defs.sp-and-tablet() {
+			padding-bottom: 64px;
+		}
+		@include defs.pc() {
+			padding-bottom: 128px;
+		}
+
+		&#{&}-narrow {
+			max-width: 800px;
+		}
+	}
+	&_copyright {
+		padding-bottom: 16px;
+		padding-top: 16px;
+		text-align: center;
+
+		small {
+			font-size: 0.75rem;
+		}
+	}
+
+	.section + .section {
+		@include defs.sp-and-tablet() {
+			margin-top: 64px;
+		}
+		@include defs.pc() {
+			margin-top: 128px;
+		}
+	}
+}
+
+.section {
+	&_title {
+		margin-bottom: 16px;
+
+		h2 {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+.appTitle {
+	background: linear-gradient(140deg, hsl(200deg, 100%, 50%), hsl(175deg, 75%, 50%));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	display: inline-block;
+	font-family: defs.$font-family-logo;
+	padding-bottom: 0.1em;
+
+	&_main {
+		font-size: 5rem;
+		line-height: 0.8;
+	}
+	&_sub {
+		font-size: 2rem;
+		margin-top: 4px;
+		text-indent: 0.1em;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			color: rgba(white, 0.1);
+		}
+	}
+}
+
+.material-symbols-outlined {
+	display: block;
+	height: 24px;
+	overflow: hidden;
+	width: 24px;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Avatar CSS for Streamkit</title>
+	<meta property="og:site_name" content="Avatar CSS for Streamkit">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://cocopon.github.io/avatar-css-streamkit/">
+	<meta property="og:title" content="Avatar CSS for Streamkit">
+	<meta property="og:description" content="Discord Streamkit Overlayを利用して、OBSで動画配信用のアバターを表示するための補助ツール。">
+	<meta property="og:image" content="https://cocopon.github.io/avatar-css-streamkit/assets/og.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monomaniac+One&Roboto+Mono:wght@400,700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0&display=block">
+	<link rel="stylesheet" href="assets/bundle.css">
+</head>
+<body>
+	<script type="module" src="assets/bundle.js" defer></script>
+
+	<div class="main">
+		<div class="hero">
+			<div class="hero_body">
+				<div class="hero_bodyInner">
+					<div class="hero_text">
+						<div class="hero_title">
+							<h1 class="appTitle">
+								<div class="appTitle_main">
+									Avatar CSS
+								</div>
+								<div class="appTitle_sub">
+									for Streamkit
+								</div>
+							</h1>
+							<div class="hero_lastUpdate">最終更新：2023/07/08</div>
+						</div>
+						<div class="hero_content">
+							<p>
+								<a href="https://streamkit.discord.com/overlay" target="_blank">Discord Streamkit Overlay</a>を使って、<a href="https://obsproject.com/" target="_blank">OBS Studio</a>で動画配信用のアバターを表示するための補助ツール。
+							</p>
+							<p>
+								3枚の画像から、シンプルながら自然なふるまいのアバターを手軽に作れます。
+							</p>
+						</div>
+						<div class="hero_action">
+							<a class="button" href="./usage/" target="_blank">
+								<span class="button_text">使いかた</span>
+								<span class="button_icon">
+									<span class="material-symbols-outlined button_icon">open_in_new</span>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="hero_preview">
+						<iframe src="preview.html" scrolling="no"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main_body">
+			<section class="section">
+			<section class="section">
+				<form class="form">
+					<div class="form_field">
+						<div class="field">
+							<div class="field_main">
+								<div class="field_label">
+									<label for="image_base">
+										立ち絵
+										<a class="helpButton" href="./usage/#draw" target="_blank">
+											<span class="material-symbols-outlined button_icon">help</span>
+										</a>
+										<span class="required">必須</span>
+									</label>
+									<aside>
+										<p>アバターの基本となる立ち絵の画像。</p>
+									</aside>
+								</div>
+								<div class="field_input">
+									<input type="text" name="image_base" required placeholder="https://cdn.discordapp.com/attachments/31415926/image_base.png">
+								</div>
+							</div>
+							<div class="field_sub">
+								<img src="assets/base.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="form_field">
+						<div class="field">
+							<div class="field_main">
+								<div class="field_label">
+									<label for="image_base">
+										まばたきの差分画像
+										<a class="helpButton" href="./usage/#draw" target="_blank">
+											<span class="material-symbols-outlined button_icon">help</span>
+										</a>
+									</label>
+									<aside>
+										<p>まばたきをするときの目の差分画像。画像サイズは立ち絵と合わせ、目の周囲だけを切り出します。</p>
+									</aside>
+								</div>
+								<div class="field_input">
+									<input type="text" name="image_eyes_1" placeholder="https://cdn.discordapp.com/attachments/31415926/image_eyes_1.png">
+								</div>
+							</div>
+							<div class="field_sub">
+								<img src="assets/eyes-1.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="form_field">
+						<div class="field">
+							<div class="field_main">
+								<div class="field_label">
+									<label for="image_base">
+										チラ見の差分画像
+										<a class="helpButton" href="./usage/#draw" target="_blank">
+											<span class="material-symbols-outlined button_icon">help</span>
+										</a>
+									</label>
+									<aside>
+										<p>視線を変えるときの目の差分画像。設定すると目の動きがより自然に感じられますが、なくても大丈夫。</p>
+									</aside>
+								</div>
+								<div class="field_input">
+									<input type="text" name="image_eyes_2" placeholder="https://cdn.discordapp.com/attachments/31415926/image_eyes_2.png">
+								</div>
+							</div>
+							<div class="field_sub">
+								<img src="assets/eyes-2.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="form_field">
+						<div class="field">
+							<div class="field_main">
+								<div class="field_label">
+									<label for="image_base">
+										口パクの差分画像
+										<a class="helpButton" href="./usage/#draw" target="_blank">
+											<span class="material-symbols-outlined button_icon">help</span>
+										</a>
+									</label>
+									<aside>
+										<p>喋っているときの口の差分画像。画像サイズは立ち絵と合わせ、口の周囲だけを切り出します。</p>
+									</aside>
+								</div>
+								<div class="field_input">
+									<input type="text" name="image_speaking" placeholder="https://cdn.discordapp.com/attachments/31415926/image_speaking.png">
+								</div>
+							</div>
+							<div class="field_sub">
+								<img src="assets/speaking.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="form_field">
+						<div class="field">
+							<div class="field_main">
+								<div class="field_label">
+									<label for="user_id">
+										DiscordのユーザーID
+										<a class="helpButton" href="./usage/#userid" target="_blank">
+											<span class="material-symbols-outlined button_icon">help</span>
+										</a>
+										<span class="required">必須</span>
+									</label>
+									<aside>
+										<p>Discordの開発者モードを有効化したあと、画面左下のユーザーアイコンから「ユーザーIDをコピー」で取得します。</p>
+									</aside>
+								</div>
+								<div class="field_input">
+									<input type="text" name="user_id" required placeholder="161803398874989484">
+								</div>
+							</div>
+							<div class="field_sub">
+								<img src="assets/userid.png" alt="">
+							</div>
+						</div>
+					</div>
+				</form>
+			</section>
+			<section class="section">
+				<div class="result">
+					<div class="result_code">
+						<textarea name="result" readonly></textarea>
+						<div class="result_action">
+							<button class="button" disabled>
+								<span class="material-symbols-outlined button_icon">content_copy</span>
+								<span class="button_text">CSSをコピー</span>
+							</button>
+						</div>
+					</div>
+					<div class="result_html">
+						<iframe src="preview.html?debug" scrolling="no"></iframe>
+					</div>
+				</div>
+			</section>
+			<section class="section">
+				<div class="section_title">
+					<h2>制作実績</h2>
+				</div>
+				<div class="section_content">
+					<div class="showcase">
+						<ul class="showcaseList">
+							<li class="showcaseList_item">
+								<a class="showcaseItem" href="https://www.youtube.com/@rionari/" target="_blank">
+									<div class="showcaseItem_image">
+										<img src="assets/showcase/rionari.png" alt="">
+									</div>
+									<div class="showcaseItem_text">
+										<div class="showcaseItem_title">
+											りおなり
+										</div>
+										<div class="showcaseItem_description">
+											<p>チャンネル登録者10万人超『りおなり夫婦のビログ旅』を運営。</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="showcaseList_item showcaseList_item-empty"></li>
+							<li class="showcaseList_item">
+								<div class="showcaseItem showcaseItem-static">
+									<div class="showcaseItem_image">
+										<img src="assets/showcase/you.png" alt="">
+									</div>
+									<div class="showcaseItem_text">
+										<div class="showcaseItem_title">
+											オリジナルのアバターで配信しませんか？
+										</div>
+										<div class="showcaseItem_description">
+											<p>イラストレーターの<a href="https://twitter.com/rupako" target="_blank">rupako</a>が、あなたに合わせたイラストを制作します。</p>
+											<div class="showcaseItem_action">
+												<a class="button" href="https://skeb.jp/@rupako" target="_blank">
+													<span class="button_text">詳しくみる</span>
+													<span class="button_icon">
+														<span class="material-symbols-outlined button_icon">open_in_new</span>
+													</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="section">
+				<div class="section_title">
+					<h2>メンバー</h2>
+				</div>
+				<div class="section_content">
+					<ul class="members">
+						<li class="members_item">
+							<a class="member" href="https://twitter.com/rupako" target="_blank">
+								<div class="member_icon">
+									<img src="assets/member/rupako.png" alt="">
+								</div>
+								<div class="member_text">
+									<div class="member_name">
+										rupako
+									</div>
+									<div class="member_role">
+										企画／イラスト／アニメーション
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="members_item">
+							<a class="member" href="https://github.com/cocopon" target="_blank">
+								<div class="member_icon">
+									<img src="assets/member/cocopon.png" alt="">
+								</div>
+								<div class="member_text">
+									<div class="member_name">
+										cocopon
+									</div>
+									<div class="member_role">
+										フロントエンド開発／技術支援
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="members_item">
+							<a class="member" href="https://store.line.me/stickershop/product/14670202/ja" target="_blank">
+								<div class="member_icon">
+									<img src="assets/member/ukon.png" alt="">
+								</div>
+								<div class="member_text">
+									<div class="member_name">
+										うこん
+									</div>
+									<div class="member_role">
+										モデル／LINEスタンプ配信中
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="members_item members_item-empty"></li>
+					</ul>
+				</div>
+			</section>
+			<section class="section">
+				<div class="section_title">
+					<h2>ご利用にあたって</h2>
+				</div>
+				<div class="section_content">
+					<div class="note">
+						<ul>
+							<li>
+								<p>生成したCSSは、非商用・商用問わず自由にご利用いただけます。利用条件も特にありませんが、本ツールを紹介いただけると励みになります！</p>
+							</li>
+							<li>
+								<p>関連要素のアップデートや仕様変更などによって、正常に動作しなくなる可能性があります。ご自身でお確かめのうえご利用ください。</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="main_copyright">
+			<small>&copy; 2023 rupako &amp; cocopon.</small>
+		</div>
+	</div>
+</body>
+</html>

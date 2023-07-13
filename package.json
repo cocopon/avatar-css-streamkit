@@ -1,0 +1,43 @@
+{
+  "name": "avatar-css-streamkit",
+  "author": "cocopon",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:sass": "mkdirp public/assets && sass src/sass/bundle.scss > public/assets/bundle.css",
+    "build:static": "cpx \"src/static/**/*\" public",
+    "build:ts": "rollup --config rollup.config.js",
+    "format": "eslint --fix src",
+    "lint": "eslint src",
+    "server": "http-server -c-1 public",
+    "start": "run-p server watch",
+    "watch": "run-p watch:*",
+    "watch:sass": "onchange --initial --kill \"src/sass/**/*.scss\" -- npm run build:sass",
+    "watch:static": "onchange --initial --kill \"src/static/**/*\" -- npm run build:static",
+    "watch:ts": "onchange --initial --kill \"src/ts/**/*.ts\" -- npm run build:ts"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0-alpha.2",
+    "http-server": "^14.1.1",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "rollup": "^2.79.1",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.63.4",
+    "tslib": "^2.6.0"
+  }
+}

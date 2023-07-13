@@ -1,0 +1,51 @@
+$font-family-body: sans-serif;
+$font-family-code: 'Roboto Mono', Courier, monospace;
+$font-family-heading: sans-serif;
+$font-family-logo: 'Monomaniac One', Impact, sans-serif;
+
+$sp-width: 480px;
+$tablet-width: 960px;
+
+$card-placeholder-bg: rgba(black, 0.05);
+$card-shadow: 0 4px 0 rgba(black, 0.05);
+$responsive-content-margin-h: max(32px, 7vw);
+$section-text-width: 480px;
+
+@mixin sp() {
+	@media screen and (max-width: $sp-width) {
+		@content;
+	}
+}
+
+@mixin sp-and-tablet() {
+	@media screen and (max-width: #{$tablet-width}) {
+		@content;
+	}
+}
+
+@mixin tablet() {
+	@media screen and (min-width: #{$sp-width + 1px}) and (max-width: $tablet-width) {
+		@content;
+	}
+}
+
+@mixin tablet-and-pc() {
+	@media screen and (min-width: #{$sp-width + 1px}) {
+		@content;
+	}
+}
+
+@mixin pc() {
+	@media screen and (min-width: #{$tablet-width + 1px}) {
+		@content;
+	}
+}
+
+@mixin responsive_body($max-width: 1024px) {
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $max-width;
+	padding-left: $responsive-content-margin-h;
+	padding-right: $responsive-content-margin-h;
+}
