@@ -22,13 +22,22 @@ function computeImageSize(src: string): Promise<Size> {
 async function setUpExample(): Promise<void> {
 	const base = 'assets/example/base.png';
 	const size = await computeImageSize(base);
-	updatePreview(document.querySelector('.hero iframe') as HTMLIFrameElement, {
+
+	const previewElem = document.querySelector(
+		'.hero iframe',
+	) as HTMLIFrameElement;
+	const params: Omit<AvatarParams, 'discordUserId'> = {
 		base: base,
 		eyesAlt: 'assets/example/eyes-2.png',
 		eyes: 'assets/example/eyes-1.png',
 		size: size,
 		speaking: 'assets/example/speaking.png',
+	};
+
+	previewElem.addEventListener('load', () => {
+		updatePreview(previewElem, params);
 	});
+	updatePreview(previewElem, params);
 }
 
 function getFields() {
