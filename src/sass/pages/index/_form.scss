@@ -26,6 +26,9 @@
 		gap: 32px;
 
 		label {
+			align-items: center;
+			display: flex;
+			gap: 4px;
 			font-weight: bold;
 		}
 		aside {
@@ -39,6 +42,10 @@
 				max-width: 360px;
 			}
 		}
+	}
+	&_help {
+		font-size: 0;
+		margin-left: 4px;
 	}
 	&_text {
 		flex: 1;

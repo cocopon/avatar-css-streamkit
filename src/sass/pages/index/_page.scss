@@ -15,8 +15,6 @@
 	font-weight: bold;
 	opacity: 0.75;
 	padding: 1px 4px;
-	position: relative;
-	top: -2px;
 }
 
 .helpButton {
@@ -24,10 +22,7 @@
 	color: var(--color-action);
 	display: inline-block;
 	padding: 2px;
-	position: relative;
 	text-decoration: none;
-	top: -2px;
-	vertical-align: middle;
 
 	&:hover {
 		background-color: var(--color-action);
