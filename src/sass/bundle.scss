@@ -5,8 +5,8 @@
 
 @use './components/button';
 
-@use './index';
-@use './usage';
+@use './pages/index/page' as *;
+@use './pages/usage/page' as *;
 
 .main {
 	&_body {

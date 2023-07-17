@@ -1,0 +1,46 @@
+@use '../../defs';
+
+@use './form';
+@use './hero';
+@use './members';
+@use './result';
+@use './showcases';
+
+.required {
+	background-color: var(--color-fg);
+	border-radius: 2px;
+	color: var(--color-bg);
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: bold;
+	opacity: 0.75;
+	padding: 1px 4px;
+	position: relative;
+	top: -2px;
+}
+
+.helpButton {
+	border-radius: 50%;
+	color: var(--color-action);
+	display: inline-block;
+	padding: 2px;
+	position: relative;
+	text-decoration: none;
+	top: -2px;
+	vertical-align: middle;
+
+	&:hover {
+		background-color: var(--color-action);
+		color: var(--color-bg);
+	}
+	&:focus {
+		outline: var(--color-action) solid 2px;
+		outline-offset: -2px;
+	}
+}
+
+.note {
+	li + li {
+		margin-top: 1em;
+	}
+}

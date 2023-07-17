@@ -1,0 +1,62 @@
+@use '../../defs';
+
+.result {
+	border-radius: 8px;
+	box-shadow: defs.$card-shadow;
+	display: flex;
+	overflow: hidden;
+
+	@include defs.sp() {
+		flex-direction: column;
+	}
+
+	&_code, &_html {
+		flex: 1;
+	}
+	&_code {
+		position: relative;
+
+		textarea {
+			border-width: 0;
+			box-sizing: border-box;
+			color: var(--color-fg-disabled);
+			font-family: defs.$font-family-code;
+			display: block;
+			resize: none;
+			width: 100%;
+
+			@include defs.sp() {
+				border-radius: 8px 8px 0 0;
+				height: 256px;
+			}
+			@include defs.tablet-and-pc() {
+				border-radius: 8px 0 0 8px;
+				height: 512px;
+			}
+		}
+	}
+	&_html {
+		iframe {
+			border-width: 0;
+			box-sizing: border-box;
+			display: block;
+			height: 512px;
+			width: 100%;
+		}
+	}
+	&_action {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+
+		.button {
+			margin-left: -50%;
+			margin-top: -50%;
+			position: relative;
+
+			&:disabled {
+				display: none;
+			}
+		}
+	}
+}

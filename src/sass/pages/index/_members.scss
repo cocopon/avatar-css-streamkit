@@ -1,0 +1,65 @@
+@use '../../defs';
+
+.members {
+	align-items: stretch;
+	display: grid;
+	gap: 16px 24px;
+
+	@include defs.sp-and-tablet() {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	@include defs.pc() {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&_item {
+		background-color: var(--color-bg-card);
+		border-radius: 8px;
+		box-shadow: defs.$card-shadow;
+		flex: 1;
+		overflow: hidden;
+	}
+	&_item#{&}_item-empty {
+		background-color: defs.$card-placeholder-bg;
+		box-shadow: none;
+		height: 100%;
+
+		@include defs.sp-and-tablet() {
+			display: none;
+		}
+	}
+}
+
+.member {
+	align-items: center;
+	box-sizing: border-box;
+	color: var(--color-fg);
+	display: flex;
+	height: 100%;
+	padding: 24px;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--color-action);
+	}
+
+	&_icon {
+		margin-right: 16px;
+
+		img {
+			border-radius: 50%;
+			overflow: hidden;
+			height: 64px;
+			width: 64px;
+		}
+	}
+	&_text {
+		flex: 1;
+	}
+	&_name {
+		font-weight: bold;
+	}
+	&_role {
+		margin-top: 4px;
+	}
+}

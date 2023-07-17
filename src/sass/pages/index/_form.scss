@@ -1,0 +1,68 @@
+@use '../../defs';
+
+.form {
+	@include defs.tablet-and-pc() {
+		padding-left: defs.$responsive-content-margin-h;
+		padding-right: defs.$responsive-content-margin-h;
+	}
+
+	&_field + &_field {
+		margin-top: 32px;
+	}
+}
+
+.field {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 32px;
+
+	&_main {
+		flex: 1;
+		padding-top: 4px;
+	}
+	&_label {
+		flex: 2;
+		gap: 32px;
+
+		label {
+			font-weight: bold;
+		}
+		aside {
+			align-items: center;
+			display: flex;
+			font-size: 0.75rem;
+			gap: 16px;
+			margin-top: 4px;
+
+			p {
+				max-width: 360px;
+			}
+		}
+	}
+	&_text {
+		flex: 1;
+	}
+	&_input {
+		flex: 3;
+		margin-top: 8px;
+
+		input {
+			box-sizing: border-box;
+			display: block;
+			font-family: defs.$font-family-code;
+			width: 100%;
+		}
+	}
+	&_sub {
+		flex: 0 0 128px;
+
+		@include defs.sp() {
+			display: none;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}

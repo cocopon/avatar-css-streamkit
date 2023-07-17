@@ -1,0 +1,79 @@
+@use '../../defs';
+
+.showcaseList {
+	display: grid;
+	gap: 16px 24px;
+
+	@include defs.sp-and-tablet() {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	@include defs.pc() {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&_item {
+		background-color: var(--color-bg-card);
+		box-shadow: defs.$card-shadow;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	&_item#{&}_item-empty {
+		background-color: defs.$card-placeholder-bg;
+		box-shadow: none;
+
+		@include defs.sp-and-tablet() {
+			display: none;
+		}
+	}
+}
+.showcaseItem {
+	color: var(--color-fg);
+	display: flex;
+	height: 100%;
+	text-decoration: none;
+
+	@include defs.sp() {
+		flex-direction: column;
+	}
+	@include defs.tablet() {
+		flex-direction: row;
+	}
+	@include defs.pc() {
+		flex-direction: column;
+	}
+
+	&:not(#{&}-static):hover {
+		color: var(--color-action);
+	}
+
+	&_image {
+		@include defs.sp-and-tablet() {
+			flex: 0 0 min(256px, 40vw);
+		}
+
+		img {
+			display: block;
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+	&_text {
+		flex: 1;
+		padding: 24px;
+	}
+	&_title {
+		font-weight: bold;
+	}
+	&_description {
+		margin-top: 8px;
+	}
+	&_action {
+		margin-top: 16px;
+
+		.button {
+			box-sizing: border-box;
+			width: 100%;
+		}
+	}
+}
