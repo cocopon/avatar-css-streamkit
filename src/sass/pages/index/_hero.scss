@@ -1,6 +1,7 @@
 @use '../../defs';
 
 .hero {
+	background-image: url(./hero-bg.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
