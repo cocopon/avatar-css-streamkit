@@ -132,13 +132,18 @@ function setUpExample() {
     return __awaiter(this, void 0, void 0, function* () {
         const base = 'assets/example/base.png';
         const size = yield computeImageSize(base);
-        updatePreview(document.querySelector('.hero iframe'), {
+        const previewElem = document.querySelector('.hero iframe');
+        const params = {
             base: base,
             eyesAlt: 'assets/example/eyes-2.png',
             eyes: 'assets/example/eyes-1.png',
             size: size,
             speaking: 'assets/example/speaking.png',
+        };
+        previewElem.addEventListener('load', () => {
+            updatePreview(previewElem, params);
         });
+        updatePreview(previewElem, params);
     });
 }
 function getFields() {
