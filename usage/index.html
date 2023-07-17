@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>使いかた - Avatar CSS for Streamkit</title>
+	<meta property="og:site_name" content="Avatar CSS for Streamkit">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://cocopon.github.io/avatar-css-streamkit/">
+	<meta property="og:title" content="Avatar CSS for Streamkit">
+	<meta property="og:description" content="Discord Streamkit Overlayを利用して、OBSで動画配信用のアバターを表示するための補助ツール。">
+	<meta property="og:image" content="https://cocopon.github.io/avatar-css-streamkit/assets/og.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monomaniac+One&Roboto+Mono:wght@400,700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0&display=block">
+	<link rel="stylesheet" href="../assets/bundle.css">
+</head>
+<body>
+	<div class="main">
+		<div class="main_body main_body-narrow">
+			<section class="main_usage">
+				<h1 class="appTitle">
+					<a href="../">
+						<div class="appTitle_main">
+							Avatar CSS
+						</div>
+						<div class="appTitle_sub">
+							for Streamkit
+						</div>
+					</a>
+				</h1>
+				<div class="usage">
+					<div class="usage_toc">
+						<div class="toc">
+							<h2 class="toc_title">使いかた</h2>
+							<ul class="toc_list">
+								<li><a href="#draw">1. 画像を作成する</a></li>
+								<li><a href="#upload">2. 画像をアップロードする</a></li>
+								<li><a href="#userid">3. DiscordのユーザーIDを調べる</a></li>
+								<li><a href="#css">4. アバターのCSSを生成する</a></li>
+								<li><a href="#streamkit">5. Streamkitを準備する</a></li>
+								<li><a href="#obs">6. OBS Studioで表示する</a></li>
+							</ul>
+						</div>
+					</div>
+					<h3 id="draw">
+						<span class="step">1/6</span>画像を作成する
+					</h3>
+					<p>必要な画像はぜんぶで3枚。アバターの立ち絵、まばたきの差分画像、口パクの差分画像です。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/images.png" alt="">
+					</div>
+					<p><strong></strong>画像サイズ</strong>は<strong>すべて同じ</strong>に揃えます。余白部分は透過なので、<strong>PNG</strong>形式で用意しましょう。3枚でもじゅうぶんですが、もう1枚だけ、チラ見の差分画像を作ってあげると、さらに自然なふるまいをしてくれます。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/images-eyes2.png" alt="">
+					</div>
+
+					<h3 id="upload"><span class="step">2/6</span> 画像をアップロードする</h3>
+					<p>作成した画像を、Discordの適当なチャンネルにアップロードします。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/discord-upload.jpg" alt="">
+					</div>
+					<p>アップロードした画像を右クリック。メニューから「<strong>リンクをコピー</strong>」でコピーします。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/discord-imageurl.jpg" alt="">
+					</div>
+					<p>コピーしたリンクは、本ツールの画像の欄にそれぞれ貼りつけます。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/acs-images.jpg" alt="">
+					</div>
+
+					<h3 id="userid"><span class="step">3/6</span> DiscordのユーザーIDを調べる</h3>
+					<p>ユーザーIDは、Discordの<strong>開発者モード</strong>を有効にしないと見られません。Discordを開いて、まずは歯車マークから<strong>ユーザー設定</strong>。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/discord-settings.jpg" alt="">
+					</div>
+					<p>「<strong>詳細設定</strong>」の中にある「<strong>開発者モード</strong>」を有効化。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/discord-devmode.jpg" alt="">
+					</div>
+					<p>設定画面を閉じてユーザーアイコンをクリックして、「<strong>ユーザーIDをコピー</strong>」。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/discord-userid.jpg" alt="">
+					</div>
+					<p>コピーしたユーザーIDは、本ツールの「<strong>DiscordのユーザーID</strong>」欄に貼りつけます。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/acs-userid.jpg" alt="">
+					</div>
+
+					<h3 id="css"><span class="step">4/6</span> アバターのCSSを生成する</h3>
+					<p>上記の情報を本ツールに入力して、アバターのCSSを生成しましょう。「<strong>CSSをコピー</strong>」ボタンをクリックでコピーしたCSSは、最後のOBSの設定で使います。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/acs-css.jpg" alt="">
+					</div>
+
+					<h3 id="streamkit"><span class="step">5/6</span> Streamkitを準備する</h3>
+					<p>アバターの表示画面を作るために、<a href="https://streamkit.discord.com/overlay" target="_blank">Streamkit</a>の準備をしていきましょう。まずは「<strong>Install for OBS</strong>」を選択。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/streamkit-obs.jpg" alt="">
+					</div>
+					<p>ちなみに、Streamkitを利用するには<strong>Discordのアプリ版</strong>が必要です。ここでエラーが出る場合は、<a href="https://discord.com/download" target="_blank">アプリをインストール</a>・起動してログインしましょう。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/streamkit-error.jpg" alt="">
+					</div>
+					<p>ページ上部で「<strong>VOICE WIDGET</strong>」を選択し、「<strong>Server</strong>」に配信に使うDiscordのサーバーを設定、「<strong>Voice Channel</strong>」にボイスチャンネルを設定します。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/streamkit-settings.jpg" alt="">
+					</div>
+					<p>仕上げに、画面右側のURLをコピーしておきましょう。このあとのOBSの設定で使います。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/streamkit-source.jpg" alt="">
+					</div>
+
+					<h3 id="obs"><span class="step">6/6</span> OBS Studioで表示する</h3>
+					<p>最後は配信ソフト<a href="https://obsproject.com/ja/download" target="_blank">OBS Studio</a>での設定です。「<strong>ソース</strong>」の「<strong>＋</strong>」ボタンをクリックして、「<strong>ブラウザ</strong>」を作成します。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/obs-browser.jpg" alt="">
+					</div>
+					<p>
+						「<strong>URL</strong>」の欄にStreamkitで生成したURLを貼りつけ。「幅」と「高さ」はアバターの大きさに合わせて適宜設定します。
+					</p>
+					<div class="usage_image">
+						<img src="../assets/usage/obs-url.jpg" alt="">
+					</div>
+					<p>そのまま少し下にスクロールして、「<strong>カスタムCSS</strong>」に本ツールで生成したCSSを貼りつけて、最後に「<strong>OK</strong>」をクリック。</p>
+					<div class="usage_image">
+						<img src="../assets/usage/obs-css.jpg" alt="">
+					</div>
+					<p>アバターが追加されます。画面上でお好みのサイズや位置に調整するとよいでしょう。お疲れさまでした！</p>
+					<div class="usage_image">
+						<img src="../assets/usage/obs-completed.jpg" alt="">
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="main_copyright">
+			<small>&copy; 2023 rupako &amp; cocopon.</small>
+		</div>
+	</div>
+</body>
+</html>
