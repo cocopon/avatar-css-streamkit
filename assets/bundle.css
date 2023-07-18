@@ -563,6 +563,23 @@ textarea {
   margin-top: 1em;
 }
 
+.share {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 32px;
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .share {
+    padding: 16px;
+  }
+}
+.share_description {
+  font-size: 0.75rem;
+  margin-top: 16px;
+}
+
 @media screen and (max-width: 960px) {
   .usage_toc, .usage h3 {
     margin-top: 4rem;
