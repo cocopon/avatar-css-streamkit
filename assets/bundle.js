@@ -130,15 +130,15 @@ function computeImageSize(src) {
 }
 function setUpExample() {
     return __awaiter(this, void 0, void 0, function* () {
-        const base = 'assets/example/base.png';
+        const base = 'assets/ukon/base.png';
         const size = yield computeImageSize(base);
         const previewElem = document.querySelector('.hero iframe');
         const params = {
             base: base,
-            eyesAlt: 'assets/example/eyes-2.png',
-            eyes: 'assets/example/eyes-1.png',
+            eyesAlt: 'assets/ukon/eyes-2.png',
+            eyes: 'assets/ukon/eyes-1.png',
             size: size,
-            speaking: 'assets/example/speaking.png',
+            speaking: 'assets/ukon/speaking.png',
         };
         previewElem.addEventListener('load', () => {
             updatePreview(previewElem, params);

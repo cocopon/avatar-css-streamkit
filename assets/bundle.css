@@ -143,7 +143,6 @@ textarea {
   justify-content: center;
   padding: 8px 16px;
   text-decoration: none;
-  white-space: nowrap;
 }
 .button:not(:disabled) {
   cursor: pointer;
@@ -160,6 +159,11 @@ textarea {
 }
 .button:not(:disabled):hover {
   background-color: var(--color-action-hover);
+}
+.button_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 481px) {
@@ -301,6 +305,9 @@ textarea {
   .hero_action .button {
     color: var(--color-bg-hero);
   }
+}
+.hero_download {
+  margin-top: 16px;
 }
 .hero_preview {
   bottom: -128px;
@@ -615,12 +622,16 @@ textarea {
   right: 0;
 }
 @media screen and (max-width: 960px) {
-  .usage :is(h1, h2, h3) + p, .usage_image + p, p + .usage_image {
+  .usage :is(h1, h2, h3) + p,
+  .usage :is(.usage_image, .usage_action) + p,
+  .usage p + :is(.usage_image, .usage_action) {
     margin-top: 1em;
   }
 }
 @media screen and (min-width: 961px) {
-  .usage :is(h1, h2, h3) + p, .usage_image + p, p + .usage_image {
+  .usage :is(h1, h2, h3) + p,
+  .usage :is(.usage_image, .usage_action) + p,
+  .usage p + :is(.usage_image, .usage_action) {
     margin-top: 2em;
   }
 }
@@ -652,6 +663,49 @@ textarea {
   line-height: 32px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.exampleFile {
+  background-color: var(--color-bg-card);
+  border-radius: 8px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 32px;
+}
+@media screen and (max-width: 480px) {
+  .exampleFile {
+    padding: 16px;
+  }
+}
+.exampleFile_description {
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 480px) {
+  .exampleFile_description {
+    margin-bottom: 16px;
+  }
+}
+.exampleFile_image {
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 480px) {
+  .exampleFile_image {
+    margin-bottom: 16px;
+  }
+}
+.exampleFile_image img {
+  display: block;
+  width: 100%;
+}
+.exampleFile_action {
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .exampleFile_action .button {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+  }
 }
 
 .main_body {
