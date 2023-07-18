@@ -9,7 +9,6 @@
 	justify-content: center;
 	padding: 8px 16px;
 	text-decoration: none;
-	white-space: nowrap;
 
 	&:not(:disabled) {
 		cursor: pointer;
@@ -28,5 +27,11 @@
 
 	&:not(:disabled):hover {
 		background-color: var(--color-action-hover);
+	}
+
+	&_text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }

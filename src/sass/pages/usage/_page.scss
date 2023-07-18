@@ -42,8 +42,8 @@
 	}
 
 	:is(h1, h2, h3) + p,
-	&_image + p,
-	p + &_image {
+	:is(#{&}_image, #{&}_action) + p,
+	p + :is(#{&}_image, #{&}_action) {
 		@include defs.sp-and-tablet() {
 			margin-top: 1em;
 		}
@@ -83,4 +83,47 @@
 	line-height: 32px;
 	padding-left: 8px;
 	padding-right: 8px;
+}
+
+.exampleFile {
+	background-color: var(--color-bg-card);
+	border-radius: 8px;;
+	box-shadow: defs.$card-shadow;
+	overflow: hidden;
+	padding: 32px;
+
+	@include defs.sp() {
+		padding: 16px;
+	}
+
+	&_description {
+		margin-bottom: 32px;
+
+		@include defs.sp() {
+			margin-bottom: 16px;
+		}
+	}
+	&_image {
+		margin-bottom: 32px;
+
+		@include defs.sp() {
+			margin-bottom: 16px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+	&_action {
+		text-align: center;
+
+		@include defs.sp() {
+			.button {
+				box-sizing: border-box;
+				display: flex;
+				width: 100%;
+			}
+		}
+	}
 }

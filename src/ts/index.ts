@@ -20,7 +20,7 @@ function computeImageSize(src: string): Promise<Size> {
 }
 
 async function setUpExample(): Promise<void> {
-	const base = 'assets/example/base.png';
+	const base = 'assets/ukon/base.png';
 	const size = await computeImageSize(base);
 
 	const previewElem = document.querySelector(
@@ -28,10 +28,10 @@ async function setUpExample(): Promise<void> {
 	) as HTMLIFrameElement;
 	const params: Omit<AvatarParams, 'discordUserId'> = {
 		base: base,
-		eyesAlt: 'assets/example/eyes-2.png',
-		eyes: 'assets/example/eyes-1.png',
+		eyesAlt: 'assets/ukon/eyes-2.png',
+		eyes: 'assets/ukon/eyes-1.png',
 		size: size,
-		speaking: 'assets/example/speaking.png',
+		speaking: 'assets/ukon/speaking.png',
 	};
 
 	previewElem.addEventListener('load', () => {
