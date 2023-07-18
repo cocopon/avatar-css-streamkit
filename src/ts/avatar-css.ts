@@ -14,7 +14,7 @@ export function createAvatarCss(params: AvatarParams) {
 }
 li {
   left: -9999px;
-  height: ${params.size.height}px;
+  height: ${params.size.height}px !important;
   position: absolute;
   top: 0;
   width: ${params.size.width}px;
