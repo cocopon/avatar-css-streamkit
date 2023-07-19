@@ -136,11 +136,11 @@ function setUpCopyButton() {
 	setUpExample();
 	setUpCopyButton();
 
-	const inputElems = Array.from(document.querySelectorAll('.form input'));
-	inputElems.forEach((elem) => {
-		elem.addEventListener('change', async () => {
-			await applyForm();
-		});
+	const formElem = document.querySelector('form');
+	formElem?.addEventListener('submit', async (ev) => {
+		ev.preventDefault();
+
+		await applyForm();
 	});
 	applyResult(null);
 }

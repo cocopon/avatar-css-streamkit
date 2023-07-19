@@ -6,6 +6,15 @@
 		padding-right: defs.$responsive-content-margin-h;
 	}
 
+	&_submit {
+		text-align: center;
+
+		@include defs.sp() {
+			.button {
+				width: 100%;
+			}
+		}
+	}
 	&_field + &_field {
 		margin-top: 32px;
 	}
