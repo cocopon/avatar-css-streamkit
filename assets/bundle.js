@@ -214,11 +214,10 @@ function setUpCopyButton() {
 {
     setUpExample();
     setUpCopyButton();
-    const inputElems = Array.from(document.querySelectorAll('.form input'));
-    inputElems.forEach((elem) => {
-        elem.addEventListener('change', () => __awaiter(void 0, void 0, void 0, function* () {
-            yield applyForm();
-        }));
-    });
+    const formElem = document.querySelector('form');
+    formElem === null || formElem === void 0 ? void 0 : formElem.addEventListener('submit', (ev) => __awaiter(void 0, void 0, void 0, function* () {
+        ev.preventDefault();
+        yield applyForm();
+    }));
     applyResult(null);
 }

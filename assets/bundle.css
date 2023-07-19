@@ -172,6 +172,14 @@ textarea {
     padding-right: max(32px, 7vw);
   }
 }
+.form_submit {
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .form_submit .button {
+    width: 100%;
+  }
+}
 .form_field + .form_field {
   margin-top: 32px;
 }
@@ -548,6 +556,7 @@ textarea {
   font-weight: bold;
   opacity: 0.75;
   padding: 1px 4px;
+  white-space: nowrap;
 }
 
 .helpButton {
